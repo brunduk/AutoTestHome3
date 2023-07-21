@@ -50,7 +50,7 @@ public class DebitCartTest {
     }
 
     @Test
-    void formPhoneValidation() {
+    void formPhoneValidationSpace() {
         SelenideElement form = $(".form_size_m");
         form.$("[data-test-id=name] input").setValue("Иванов Иван");
         form.$("[data-test-id=phone] input").setValue(" ");
@@ -62,7 +62,7 @@ public class DebitCartTest {
     }
 
     @Test
-    void formPhoneValidation2() {
+    void formPhoneValidationMoreSymbol() {
         SelenideElement form = $(".form_size_m");
         form.$("[data-test-id=name] input").setValue("Иванов Иван");
         form.$("[data-test-id=phone] input").setValue("987654345678");
@@ -74,7 +74,7 @@ public class DebitCartTest {
     }
 
     @Test
-    void formPhoneValidation2131() {
+    void formAgree() {
         SelenideElement form = $(".form_size_m");
         form.$("[data-test-id=name] input").setValue("Иванов Иван");
         form.$("[data-test-id=phone] input").setValue("+79211234567");
