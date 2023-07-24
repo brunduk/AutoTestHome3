@@ -23,7 +23,7 @@ public class DebitCartTest {
         form.$(".checkbox__box").click();
         form.$(".button_view_extra").click();
 
-        $(".paragraph").shouldHave(exactText(
+        $("[data-test-id=order-success]").shouldHave(exactText(
                 "Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время."));
     }
 
@@ -34,7 +34,8 @@ public class DebitCartTest {
         form.$("[data-test-id=phone] input").setValue("+79211234567");
         form.$(".checkbox__box").click();
         form.$(".button_view_extra").click();
-        form.$(".input__sub").shouldHave(exactText("Поле обязательно для заполнения"));
+        form.$("[data-test-id='name'].input_invalid .input__sub").shouldHave(exactText(
+                "Поле обязательно для заполнения"));
 
     }
 
@@ -45,7 +46,8 @@ public class DebitCartTest {
         form.$("[data-test-id=phone] input").setValue("+79211234567");
         form.$(".checkbox__box").click();
         form.$(".button_view_extra").click();
-        form.$(".input__sub").shouldHave(exactText("Имя и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы."));
+        form.$("[data-test-id='name'].input_invalid .input__sub").shouldHave(exactText(
+                "Имя и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы."));
 
     }
 
@@ -57,7 +59,8 @@ public class DebitCartTest {
         form.$(".checkbox__box").click();
         form.$(".button_view_extra").click();
         SelenideElement phone = $("[data-test-id=phone]");
-        phone.$(".input__sub").shouldHave(exactText("Поле обязательно для заполнения"));
+        phone.$("[data-test-id='phone'].input_invalid .input__sub").shouldHave(exactText(
+                "Поле обязательно для заполнения"));
 
     }
 
@@ -69,7 +72,8 @@ public class DebitCartTest {
         form.$(".checkbox__box").click();
         form.$(".button_view_extra").click();
         SelenideElement phone = $("[data-test-id=phone]");
-        phone.$(".input__sub").shouldHave(exactText("Телефон указан неверно. Должно быть 11 цифр, например, +79012345678."));
+        phone.$("[data-test-id='phone'].input_invalid .input__sub").shouldHave(exactText(
+                "Телефон указан неверно. Должно быть 11 цифр, например, +79012345678."));
 
     }
 
